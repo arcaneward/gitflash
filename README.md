@@ -1,4 +1,5 @@
 # gitflash
-Vanilla JS Git cheat sheet flashcards
+Javascript Git cheat sheet flashcards
 
+Source used for flash card content:
 https://education.github.com/git-cheat-sheet-education.pdf
