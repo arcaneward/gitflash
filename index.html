@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+   <meta charset="UTF-8">
+   <title>Git cheat sheet flash cards</title>
+ <style>
+ body{
+     background: rgb(236,236,236);
+    }
+    .invisible {
+      display: none;
+    }
+    .content{
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     margin-top: -200px;
+     margin-left: -200px;
+    }
+    .cardDeck{
+      position: relative;
+      transform: translate(-15%, 0%);
+      height: 350px;
+      width: 400px;
+      margin: auto;
+    }
+    .card{
+      position: absolute;
+    }
+    .card div{
+      width: 400px;
+      height: 200px;
+      padding: 50px;
+      text-align: center;
+    }
+    .card div.front{
+      background: white;
+      color: rgb(80,182,252);
+      border: 0px;
+      border-radius: 25px;
+      line-height: 30px;
+      line-height: 30px;
+      font-family: helvetica;
+      font-size: 1.1em;
+    }
+    .card div.back{
+      background-color: rgb(80,182,252);
+      color: white;
+      border: 0px;
+      border-radius: 25px;
+      line-height: 30px;
+      font-family: helvetica;
+      font-size: 1.1em;
+    }
+    .card div.front.switched{
+      background-color: white;
+      color: rgb(32,130,239);
+      border: 0px;
+      border-radius: 25px;
+      line-height: 30px;
+    }
+    .card div.back.switched{
+      background-color: rgb(32,130,239);
+      color: white;
+      border: 0px;
+      border-radius: 25px;
+      line-height: 30px;
+    }
+    .card div.back{
+      transform: rotateY(90deg);
+      position: absolute;
+    }
+    .card div.front{
+      position: absolute;
+    }
+    .card div.front.animate{
+      animation: twirl 0.1s ease-in forwards;
+    }
+    .card div.back.animate{
+      animation: twirl 0.1s 0.1s ease-out forwards reverse;
+    }
+    .card div.back.animateReverse{
+      animation: twirlReverse 0.1s ease-in forwards ;
+    }
+    .card div.front.animateReverse{
+      transform: rotateY(90deg);
+      animation: twirlReverse 0.1s 0.1s  ease-out forwards reverse;
+    }
+    .card div.back.switched{
+      transform: rotateY(90deg);
+    }
+    .card div.front.switched{
+      position: absolute;
+    }
+    .card div.front.animate.switched{
+      animation: twirl 0.1s ease-in forwards;
+    }
+    .card div.back.animate.switched{
+      animation: twirl 0.1s 0.1s ease-out forwards reverse;
+    }
+    .card div.back.animateReverse.switched{
+      animation: twirlReverse 0.1s ease-in forwards ;
+    }
+    .card div.front.animateReverse.switched{
+      transform: rotateY(90deg);
+      animation: twirlReverse 0.1s 0.1s  ease-out forwards reverse;
+    }
+    @keyframes twirl{
+      0%{ transform: rotateY(0deg) }
+      100%{ transform: rotateY(90deg) }
+    }
+    @keyframes twirlReverse{
+      0%{ 
+        transform: rotateY(0deg) 
+        }
+      100%{ 
+        transform: rotateY(90deg) 
+        }
+    }
+    .cardBtns {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 300px;
+      height: 40px;
+      margin: auto;
+    }
+    .cardBtns button {
+      flex-grow: 1;
+      background: rgb(214,214,214);
+      border: 0px;
+      border-radius: 15px;
+      font-family: helvetica;
+      font-size: 0.75em;
+      color: rgb(147,147,147);
+    }
+    .cardBtns button, button {
+      margin-left: 5px;
+    }
+</style>
+</head>
+
+  <div class="content">
+      <div class="cardDeck">
+          <div class="card"><div class="front"><p>git config --global user.name “[firstname lastname]”</p></div><div class="back"><p>set a name that is identifiable for credit when review version history</p></div></div>
+          <div class="card"><div class="front"><p>git config --global user.email “[valid-email]”</p></div><div class="back"><p>set an email address that will be associated with each history marker</p></div></div>
+          <div class="card"><div class="front"><p>git config --global color.ui auto</p></div><div class="back"><p>set automatic command line coloring for Git for easy reviewing</p></div></div>
+          <div class="card"><div class="front"><p>git init</p></div><div class="back"><p>initialize an existing directory as a Git repository</p></div></div>
+          <div class="card"><div class="front"><p>git clone [url]</p></div><div class="back"><p>retrieve an entire repository from a hosted location via URL</p></div></div>
+          <div class="card"><div class="front"><p>git status</p></div><div class="back"><p>show modified files in working directory, staged for your next commit</p></div></div>
+          <div class="card"><div class="front"><p>git add [file]</p></div><div class="back"><p>add a file as it looks now to your next commit (stage)</p></div></div>
+          <div class="card"><div class="front"><p>git reset [file]</p></div><div class="back"><p>unstage a file while retaining the changes in working directory</p></div></div>
+          <div class="card"><div class="front"><p>git diff</p></div><div class="back"><p>diff of what is changed but not staged</p></div></div>
+          <div class="card"><div class="front"><p>git diff --staged</p></div><div class="back"><p>diff of what is staged but not yet commited/p></div></div>
+          <div class="card"><div class="front"><p>git commit -m “[descriptive message]”</p></div><div class="back"><p>commit your staged content as a new commit snapshot</p></div></div>
+          <div class="card"><div class="front"><p>git branch</p></div><div class="back"><p>list your branches. a * will appear next to the currently active branch</p></div></div>
+          <div class="card"><div class="front"><p>git branch [branch-name]</p></div><div class="back"><p>create a new branch at the current commit</p></div></div>
+          <div class="card"><div class="front"><p>git checkout</p></div><div class="back"><p>switch to another branch and check it out into your working directory</p></div></div>
+          <div class="card"><div class="front"><p>git merge [branch]</p></div><div class="back"><p>merge the specified branch’s history into the current one</p></div></div>
+          <div class="card"><div class="front"><p>git log</p></div><div class="back"><p>show all commits in the current branch’s history</p></div></div>
+          <div class="card"><div class="front"><p>git log branchB..branchA</p></div><div class="back"><p>show the commits on branchA that are not on branchB</p></div></div>
+          <div class="card"><div class="front"><p>git log --follow [file]</p></div><div class="back"><p>show the commits that changed file, even across renames</p></div></div>
+          <div class="card"><div class="front"><p>git diff branchB...branchA</p></div><div class="back"><p>show the diff of what is in branchA that is not in branchB</p></div></div>
+          <div class="card"><div class="front"><p>git show [SHA]</p></div><div class="back"><p>show any object in Git in human-readable format</p></div></div>
+          <div class="card"><div class="front"><p>git rm [file]</p></div><div class="back"><p>delete the file from project and stage the removal for commit</p></div></div>
+          <div class="card"><div class="front"><p>git mv [existing-path] [new-path]</p></div><div class="back"><p>change an existing file path and stage the move</p></div></div>
+          <div class="card"><div class="front"><p>git log --stat -M</p></div><div class="back"><p>show all commit logs with indication of any paths that moved</p></div></div>
+          <div class="card"><div class="front"><p>logs/<br>*.notes<br>pattern*/</p></div><div class="back"><p>Save a file with desired paterns as .gitignore with either direct string
+matches or wildcard globs.</p></div></div>
+          <div class="card"><div class="front"><p>git config --global core.excludesfile [file]</p></div><div class="back"><p>system wide ignore patern for all local repositories</p></div></div>
+          <div class="card"><div class="front"><p>git remote add [alias] [url]</p></div><div class="back"><p>add a git URL as an alias</p></div></div>
+          <div class="card"><div class="front"><p>git fetch [alias]</p></div><div class="back"><p>fetch down all the branches from that Git remote</p></div></div>
+          <div class="card"><div class="front"><p>git merge [alias]/[branch]</p></div><div class="back"><p>merge a remote branch into your current branch to bring it up to date</p></div></div>
+          <div class="card"><div class="front"><p>git push [alias] [branch]</p></div><div class="back"><p>Transmit local branch commits to the remote repository branch</p></div></div>
+          <div class="card"><div class="front"><p>git pull</p></div><div class="back"><p>fetch and merge any commits from the tracking remote branch</p></div></div>
+          <div class="card"><div class="front"><p>git rebase [branch]</p></div><div class="back"><p>apply any commits of current branch ahead of specified one</p></div></div>
+          <div class="card"><div class="front"><p>git reset --hard [commit]</p></div><div class="back"><p>clear staging area, rewrite working tree from specified commit</p></div></div>
+          <div class="card"><div class="front"><p>git stash</p></div><div class="back"><p>Save modified and staged changes</p></div></div>
+          <div class="card"><div class="front"><p>git stash list</p></div><div class="back"><p>list stack-order of stashed file changes</p></div></div>
+          <div class="card"><div class="front"><p>git stash pop</p></div><div class="back"><p>write working from top of stash stack</p></div></div>
+          <div class="card"><div class="front"><p>git stash drop</p></div><div class="back"><p>discard the changes from top of stash stack</p></div></div>
+      </div>
+      
+              <div class="cardBtns">
+          <button class="previous" type="button">Previous</button>
+          <button class="random" type="button">Random</button>
+          <button class="switch" type="button" style="display:none;">Switch</button>
+          <button class="next" type="button">Next</button>
+      </div>
+        </div>
+        
+    <script>
+    window.HUB_EVENTS={ASSET_ADDED:"ASSET_ADDED",ASSET_DELETED:"ASSET_DELETED",ASSET_DESELECTED:"ASSET_DESELECTED",ASSET_SELECTED:"ASSET_SELECTED",ASSET_UPDATED:"ASSET_UPDATED",CONSOLE_CHANGE:"CONSOLE_CHANGE",CONSOLE_CLOSED:"CONSOLE_CLOSED",CONSOLE_EVENT:"CONSOLE_EVENT",CONSOLE_OPENED:"CONSOLE_OPENED",CONSOLE_RUN_COMMAND:"CONSOLE_RUN_COMMAND",CONSOLE_SERVER_CHANGE:"CONSOLE_SERVER_CHANGE",EMBED_ACTIVE_PEN_CHANGE:"EMBED_ACTIVE_PEN_CHANGE",EMBED_ACTIVE_THEME_CHANGE:"EMBED_ACTIVE_THEME_CHANGE",EMBED_ATTRIBUTE_CHANGE:"EMBED_ATTRIBUTE_CHANGE",EMBED_RESHOWN:"EMBED_RESHOWN",FORMAT_FINISH:"FORMAT_FINISH",FORMAT_ERROR:"FORMAT_ERROR",FORMAT_START:"FORMAT_START",IFRAME_PREVIEW_RELOAD_CSS:"IFRAME_PREVIEW_RELOAD_CSS",IFRAME_PREVIEW_URL_CHANGE:"IFRAME_PREVIEW_URL_CHANGE",KEY_PRESS:"KEY_PRESS",LINTER_FINISH:"LINTER_FINISH",LINTER_START:"LINTER_START",PEN_CHANGE_SERVER:"PEN_CHANGE_SERVER",PEN_CHANGE:"PEN_CHANGE",PEN_EDITOR_CLOSE:"PEN_EDITOR_CLOSE",PEN_EDITOR_CODE_FOLD:"PEN_EDITOR_CODE_FOLD",PEN_EDITOR_ERRORS:"PEN_EDITOR_ERRORS",PEN_EDITOR_EXPAND:"PEN_EDITOR_EXPAND",PEN_EDITOR_FOLD_ALL:"PEN_EDITOR_FOLD_ALL",PEN_EDITOR_LOADED:"PEN_EDITOR_LOADED",PEN_EDITOR_REFRESH_REQUEST:"PEN_EDITOR_REFRESH_REQUEST",PEN_EDITOR_RESET_SIZES:"PEN_EDITOR_RESET_SIZES",PEN_EDITOR_SIZES_CHANGE:"PEN_EDITOR_SIZES_CHANGE",PEN_EDITOR_UI_CHANGE_SERVER:"PEN_EDITOR_UI_CHANGE_SERVER",PEN_EDITOR_UI_CHANGE:"PEN_EDITOR_UI_CHANGE",PEN_EDITOR_UI_DISABLE:"PEN_EDITOR_UI_DISABLE",PEN_EDITOR_UI_ENABLE:"PEN_EDITOR_UI_ENABLE",PEN_EDITOR_UNFOLD_ALL:"PEN_EDITOR_UNFOLD_ALL",PEN_ERROR_INFINITE_LOOP:"PEN_ERROR_INFINITE_LOOP",PEN_ERROR_RUNTIME:"PEN_ERROR_RUNTIME",PEN_ERRORS:"PEN_ERRORS",PEN_LIVE_CHANGE:"PEN_LIVE_CHANGE",PEN_LOGS:"PEN_LOGS",PEN_MANIFEST_CHANGE:"PEN_MANIFEST_CHANGE",PEN_MANIFEST_FULL:"PEN_MANIFEST_FULL",PEN_PREVIEW_FINISH:"PEN_PREVIEW_FINISH",PEN_PREVIEW_START:"PEN_PREVIEW_START",PEN_SAVED:"PEN_SAVED",POPUP_CLOSE:"POPUP_CLOSE",POPUP_OPEN:"POPUP_OPEN",POST_CHANGE:"POST_CHANGE",POST_SAVED:"POST_SAVED",PROCESSING_FINISH:"PROCESSING_FINISH",PROCESSING_START:"PROCESSED_STARTED"},"object"!=typeof window.CP&&(window.CP={}),window.CP.PenTimer={programNoLongerBeingMonitored:!1,timeOfFirstCallToShouldStopLoop:0,_loopExits:{},_loopTimers:{},START_MONITORING_AFTER:2e3,STOP_ALL_MONITORING_TIMEOUT:5e3,MAX_TIME_IN_LOOP_WO_EXIT:2200,exitedLoop:function(E){this._loopExits[E]=!0},shouldStopLoop:function(E){if(this.programKilledSoStopMonitoring)return!0;if(this.programNoLongerBeingMonitored)return!1;if(this._loopExits[E])return!1;var _=this._getTime();if(0===this.timeOfFirstCallToShouldStopLoop)return this.timeOfFirstCallToShouldStopLoop=_,!1;var o=_-this.timeOfFirstCallToShouldStopLoop;if(o<this.START_MONITORING_AFTER)return!1;if(o>this.STOP_ALL_MONITORING_TIMEOUT)return this.programNoLongerBeingMonitored=!0,!1;try{this._checkOnInfiniteLoop(E,_)}catch(N){return this._sendErrorMessageToEditor(),this.programKilledSoStopMonitoring=!0,!0}return!1},_sendErrorMessageToEditor:function(){try{if(this._shouldPostMessage()){var E={topic:HUB_EVENTS.PEN_ERROR_INFINITE_LOOP,data:{line:this._findAroundLineNumber()}};parent.postMessage(E,"*")}else this._throwAnErrorToStopPen()}catch(_){this._throwAnErrorToStopPen()}},_shouldPostMessage:function(){return document.location.href.match(/boomboom/)},_throwAnErrorToStopPen:function(){throw"We found an infinite loop in your Pen. We've stopped the Pen from running. More details and workarounds at https://blog.codepen.io/2016/06/08/can-adjust-infinite-loop-protection-timing/"},_findAroundLineNumber:function(){var E=new Error,_=0;if(E.stack){var o=E.stack.match(/boomboom\S+:(\d+):\d+/);o&&(_=o[1])}return _},_checkOnInfiniteLoop:function(E,_){if(!this._loopTimers[E])return this._loopTimers[E]=_,!1;var o;if(_-this._loopTimers[E]>this.MAX_TIME_IN_LOOP_WO_EXIT)throw"Infinite Loop found on loop: "+E},_getTime:function(){return+new Date}},window.CP.shouldStopExecution=function(E){var _=window.CP.PenTimer.shouldStopLoop(E);return!0===_&&console.warn("[CodePen]: An infinite loop (or a loop taking too long) was detected, so we stopped its execution. More details at https://blog.codepen.io/2016/06/08/can-adjust-infinite-loop-protection-timing/"),_},window.CP.exitedLoop=function(E){window.CP.PenTimer.exitedLoop(E)};
+    </script>
+    <script id="rendered" >
+var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+
+cards.forEach(function (card) {
+  card.classList.add("invisible");
+});
+cards[0].classList.remove("invisible");
+
+document.querySelector(".next").addEventListener("click", function () {
+  cards.forEach(function (card) {
+    for (i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+      card.childNodes[i].classList.remove("animate");
+      card.childNodes[i].classList.remove("animateReverse");
+    } window.CP.exitedLoop(0);
+  });
+  for (var i = 0; i < cards.length; i++) {if (window.CP.shouldStopExecution(1)) break;
+    var card = cards[i];
+    if (!card.classList.contains("invisible")) {
+      if (cards.indexOf(card) + 1 < cards.length) {
+        card.classList.add("invisible");
+        cards[cards.indexOf(card) + 1].classList.remove("invisible");
+        break;
+      } else {
+        cards[cards.length - 1].classList.add("invsisible");
+        cards[0].classList.remove("invisible");
+      }
+    }
+  } window.CP.exitedLoop(1);
+});
+document.querySelector(".previous").addEventListener("click", function () {
+  cards.forEach(function (card) {
+    for (i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(2)) break;
+      card.childNodes[i].classList.remove("animate");
+      card.childNodes[i].classList.remove("animateReverse");
+    } window.CP.exitedLoop(2);
+  });
+  for (var i = cards.length - 1; i >= 0; i--) {if (window.CP.shouldStopExecution(3)) break;
+    var card = cards[i];
+    if (!card.classList.contains("invisible")) {
+      if (cards.indexOf(card) - 1 >= 0) {
+        card.classList.add("invisible");
+        cards[cards.indexOf(card) - 1].classList.remove("invisible");
+        break;
+      } else {
+        cards[0].classList.add("invisible");
+        cards[cards.length - 1].classList.remove("invisible");
+      }
+    }
+  } window.CP.exitedLoop(3);
+});
+document.querySelector(".random").addEventListener("click", function () {
+  cards.forEach(function (card) {
+    for (i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(4)) break;
+      card.childNodes[i].classList.remove("animate");
+      card.childNodes[i].classList.remove("animateReverse");
+
+    }window.CP.exitedLoop(4);
+  });
+  shuffle(cards);
+});
+document.querySelector(".switch").addEventListener("click", function () {
+  cards.forEach(function (card) {
+    for (i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(5)) break;
+      card.childNodes[i].classList.remove("animate");
+      card.childNodes[i].classList.remove("animateReverse");
+
+    }window.CP.exitedLoop(5);
+  });
+  cards.forEach(function (card) {
+    card.childNodes.forEach(function (div) {
+      if (!div.classList.contains("switched")) {
+        if (div.classList.contains('front')) {
+          div.classList.remove('front');
+          div.classList.add('back');
+          div.classList.add('switched');
+        } else if (div.classList.contains('back')) {
+          div.classList.remove('back');
+          div.classList.add('front');
+          div.classList.add('switched');
+        }
+      } else {
+        if (div.classList.contains('front')) {
+          div.classList.remove('front');
+          div.classList.add('back');
+          div.classList.remove('switched');
+        } else if (div.classList.contains('back')) {
+          div.classList.remove('back');
+          div.classList.add('front');
+          div.classList.remove('switched');
+        }
+      }
+    });
+  });
+});
+cards.forEach(function (card) {
+  card.addEventListener("click", function () {
+    if (!card.childNodes[0].classList.contains("animate")) {
+      for (var i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(6)) break;
+        card.childNodes[i].classList.remove("animateReverse");
+        card.childNodes[i].classList.add("animate");
+      }window.CP.exitedLoop(6);
+    } else {
+      for (var i = 0; i < card.childNodes.length; i++) {if (window.CP.shouldStopExecution(7)) break;
+        card.childNodes[i].classList.remove("animate");
+        card.childNodes[i].classList.add("animateReverse");
+      }window.CP.exitedLoop(7);
+    }
+  });
+});
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {if (window.CP.shouldStopExecution(8)) break;
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }window.CP.exitedLoop(8);
+  a.forEach(function (card) {
+    card.classList.add("invisible");
+  });
+  a[0].classList.remove('invisible');
+  return a;
+}
+</script>
